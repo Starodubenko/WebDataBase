@@ -29,7 +29,7 @@ public class Controller extends HttpServlet {
             e.printStackTrace();
         }
 
-
+//        System.out.println(req.getAttribute("reg"));
         req.getRequestDispatcher(reuslt).forward(req,resp);
     }
 }

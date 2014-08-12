@@ -26,10 +26,8 @@ public class OpenDBAction implements Action {
 
             List<Element> namesOfTables = new ArrayList<>();
 
-            int i = 1;
             while(resultSet.next()){;
                 namesOfTables.add(new Element(resultSet.getString(1)));
-                i++;
             }
 
             System.out.println(namesOfTables);

@@ -53,7 +53,10 @@ public class GetDataFromDBAction implements Action {
             request.setAttribute("result", result);
             connection.close();
         }
-        return "/WEB-INF/result.jsp";
+//        System.out.println(request.getAttribute("Regist"));
+//        if (request.getAttribute("Regist") != null) return "index.jsp";
+//        else
+            return "/WEB-INF/result.jsp";
     }
 
     private String FirsUpperSymbol(String s){

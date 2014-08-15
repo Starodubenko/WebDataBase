@@ -11,9 +11,6 @@ public class GetDataFromDBAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-
-
-
         String tableName = request.getParameter("TableName");
         System.out.println(tableName);
         if (tableName != null && tableName != "") {
@@ -46,16 +43,11 @@ public class GetDataFromDBAction implements Action {
                 f = false;
 
                 result.add(row);
-//                System.out.println(row.toString());
-//                System.out.println(titlesOfColumns.toString());
             }
             request.setAttribute("titlesOfColumns", titlesOfColumns);
             request.setAttribute("result", result);
             connection.close();
         }
-//        System.out.println(request.getAttribute("Regist"));
-//        if (request.getAttribute("Regist") != null) return "index.jsp";
-//        else
             return "/WEB-INF/result.jsp";
     }
 

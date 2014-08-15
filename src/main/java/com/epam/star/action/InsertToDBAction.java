@@ -37,14 +37,12 @@ public class InsertToDBAction implements Action {
                 i++;
             }
 
-//            System.out.println(namesOfColumns);
-
             String valuesString = "(";
             String colsNamesString = "(";
 
-            String[] parameters = request.getParameterValues("RegistrationValues");
+            String[] parameters = request.getParameterValues("ValuesForInsertToDB");
             for (String parameter : parameters) {
-                valuesString = valuesString + parameter + ",";
+                valuesString = valuesString + "'" + parameter + "'" +",";
             }
             valuesString = valuesString.substring(0,valuesString.length()-1) + ")";
             System.out.println(valuesString);
@@ -55,31 +53,10 @@ public class InsertToDBAction implements Action {
             colsNamesString = colsNamesString.substring(0,colsNamesString.length()-1) + ")";
             System.out.println(colsNamesString);
 
-
-//            Map<String, String[]> parameterMap = request.getParameterMap();
-//            Object[] objects = parameterMap.keySet().toArray();
-//            for (Object s : objects) {
-//                colsNamesString = colsNamesString + s + ",";
-//            }
-//            colsNamesString = colsNamesString.substring(0,colsNamesString.length()-1) + ")";
-//            System.out.println(colsNamesString);
-
-
-//            Enumeration e = request.getParameterNames();
-//            String allParameters = "Parameters: ";
-//            while (e.hasMoreElements()) {
-//                String name = (String) e.nextElement();
-//                allParameters = allParameters +": "+ name;
-//            }
-
-
-//            System.out.println(request.getAttribute("TableName"));
-
-            statement.executeQuery("insert into " + tableName + " " + colsNamesString + " values " + valuesString);
+            statement.execute("insert into " + tableName + " " + colsNamesString + " values " + valuesString);
 
             connection.close();
         }
-
         return "index.jsp";
     }
 

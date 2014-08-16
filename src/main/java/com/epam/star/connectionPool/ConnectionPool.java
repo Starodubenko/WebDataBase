@@ -11,10 +11,19 @@ public class ConnectionPool {
     private static int CURRENT_POOL_SIZE;
     private static List<Connection> connectionList = new ArrayList<>(MAX_POOL_SIZE);
 
+    public ConnectionPool() {
+        try {
+            Class.forName("org.h2.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static synchronized Connection getConnectionFromPool(String url,String userName, String password) throws SQLException{
+
         if (connectionList.isEmpty()) {
             if (CURRENT_POOL_SIZE >= MAX_POOL_SIZE) {
-                //todo will create MyException
+                //todo will create PoolException
                 System.out.println("Maximum pool size is reaced. Can not create connection");
             }
             CURRENT_POOL_SIZE++;

@@ -1,13 +1,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<%-- todo use controller to display this page (now you can access this page without your controller) --%>
 <fmt:bundle basename="i18n.messages">
     <html>
 
     <head>
         <title>Welcome</title>
-        <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'>
-        <link rel='stylesheet' href='style/index.css'>
+        <link rel='stylesheet' href='<c:url value="/webjars/bootstrap/3.2.0/css/bootstrap.min.css"/>'>
+        <link rel='stylesheet' href='<c:url value="/style/index.css"/>'>
     </head>
     <body>
 
@@ -18,7 +20,7 @@
                 <label id="Welcome">Welcome</label>
             </div>
             <div id="unAutorized" onload="loginFormVisible(${user})">
-                <form  action="${pageContext.request.contextPath}/db" method="post">
+                <form method="post">
                     <label >Login</label>
                     <br><input type="text" name="authenticationLogin" value="Vano34">
                     <label>Password</label>
@@ -68,6 +70,8 @@
             </div>
         </div>
 
+        <%--<c:<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<--%>
+
         <div class="contactInformation" style="overflow-y: scroll">
             <label>Rodion Starodubenko: +77003996925</label>
             <label>Rodion Starodubenko: +77003996925</label>
@@ -80,7 +84,7 @@
     </div>
 
     <div>
-        <form action="${pageContext.request.contextPath}/db" method="post">
+        <form method="post">
             <input type="submit" value="Go to DataBase">
             <ul class="pager">
                 <li class="previous"><a href="#">&larr; Older</a></li>
@@ -103,7 +107,7 @@
                     <h4 class="modal-title" id="myModalLabel">Registration form</h4>
                 </div>
                     <%--<c:forEach var="title" items="${titlesOfColumns}">--%>
-                <form action="${pageContext.request.contextPath}/db" method="post">
+                <form method="post">
                     <div class="registration">
                         <div class="form-group">
                             <label for="Login" class="label">Login</label>

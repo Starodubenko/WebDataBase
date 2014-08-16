@@ -3,6 +3,7 @@ package com.epam.star.action;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 
+@Post
 public class LoginAction implements Action {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {

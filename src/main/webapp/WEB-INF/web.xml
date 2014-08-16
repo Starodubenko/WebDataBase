@@ -6,6 +6,14 @@
 
     <display-name>Microelectronic app</display-name>
 
+
+    <!--
+    when i type http://localhost:8087/db/ in browser and server get this req
+    server try to find index.html or index.jsp in your webapp folder
+    and he found it and he accessed it without you controller
+    if you map controller like /controller you should use index.jsp with redirect only
+    i told about it on Thursday
+    -->
     <servlet>
         <servlet-name>controller</servlet-name>
         <servlet-class>com.epam.star.servlet.Controller</servlet-class>
@@ -13,6 +21,6 @@
 
     <servlet-mapping>
         <servlet-name>controller</servlet-name>
-        <url-pattern>/db</url-pattern>
+        <url-pattern>/controller</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -41,7 +41,7 @@
     <div class="mainn">
         <div id="mainn" class="panel panel-default">
             <div id="topPart" class="panel panel-default">
-                <form id="btn-group" action="${pageContext.request.contextPath}/db" method="post">
+                <form id="btn-group" method="post">
                     <div class="btn-group">
                         <button type="submit" name="TableName" value="Clients" class="btn btn-default">Clients</button>
                         <button type="submit" name="TableName" value="Employees" class="btn btn-default">Employees</button>
@@ -67,7 +67,7 @@
             </div>
 
             <div id="leftPart" class="panel panel-default" style="overflow-y: scroll;">
-                <form action="${pageContext.request.contextPath}/db" method="post">
+                <form method="post">
                 <c:forEach var="title" items="${titlesOfColumns}">
                     <div class="form-group">
                         <label for="exampleInputEmail1" class="label">${title.getElement()}</label>

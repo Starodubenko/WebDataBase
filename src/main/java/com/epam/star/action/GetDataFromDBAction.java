@@ -1,5 +1,6 @@
 package com.epam.star.action;
 
+import com.epam.star.connectionPool.ConnectionPool;
 import com.epam.star.entity.Element;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,8 @@ public class GetDataFromDBAction implements Action {
             e.printStackTrace();
         }
 
-        Connection connection = DriverManager.getConnection("jdbc:h2:tcp://localhost/F:/Видео Epam/db/FPDB", "Rody", "1");
+//        Connection connectionn = DriverManager.getConnection("jdbc:h2:tcp://localhost/F:/Видео Epam/db/FPDB", "Rody", "1");
+        Connection connection = ConnectionPool.getConnectionFromPool("jdbc:h2:tcp://localhost/F:/Видео Epam/db/FPDB","Rody","1");
         Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery("SELECT * FROM " + tableName);
